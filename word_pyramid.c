@@ -2,26 +2,32 @@
 #include<string.h>
 void main()
 {
-    char n[100];
-    int i,j,t,flag;
+    char n[100],x[100];
+    int i=0,j=0;
     printf("Enter string:");
-    scanf("%s",&n);
-    flag=strlen(n)/2;
-    for(i=strlen(n)/2,j=1;i<strlen(n),j<=strlen(n)/2+1;i++,j++)
+    scanf("%s",n);
+    for(i=strlen(n)/2,j=0;i<strlen(n);i++,j++)
     {
-        if(flag>=strlen(n)/2)
+        x[j]=n[i];
+    }
+    for(i=0;i<strlen(n)/2;i++,j++)
+    {
+        x[j]=n[i];
+    }
+    for(i=0;i<strlen(n);i++)
+    {
+        for(j=0;j<strlen(n);j++)
         {
-            for(t=strlen(n);t>=flag;t--)
-                {
-                    printf(" ");
-                }
-            for(t=i;t<strlen(n);t++)
-            {
 
-                printf("%c",n[t]);
-                ++flag;
-            }
+        if(i+j<strlen(n)-1)
+        {
+             printf(" ");
+        }
+        else
+        {
+                printf("%c",x[j]);
+        }
         }
         printf("\n");
-    }
+}
 }
